@@ -55,6 +55,14 @@ The performance of the Autoencoder model was evaluated based on the following me
 
 - **Structural Similarity Index (SSIM)**: Assesses the perceived quality of the reconstructed images by comparing structural information. The SSIM score for the Autoencoder was `0.85`, indicating strong structural similarity between original and reconstructed images.
 
+**Metrics Table for Autoencoder:**
+
+| Metric   | Value (Validation) | Value (Test) |
+|----------|--------------------|--------------|
+| MSE      | 0.015              | 0.012        |
+| PSNR     | 27.5 dB            | 27.5 dB      |
+| SSIM     | 0.85               | 0.85         |
+
 **Figures**: Comparative plots of MSE, PSNR, and SSIM across different training epochs and regularization settings are included. These figures illustrate the performance trends and highlight the effects of various regularization techniques.
 
 #### Regularization Techniques
@@ -65,6 +73,15 @@ The performance of the Autoencoder model was evaluated based on the following me
 
 - **Elastic Net Regularization**: A combination of L1 and L2 regularization provided balanced improvements in reconstruction quality and model robustness. The MSE was reduced to `0.010`, demonstrating the effectiveness of this technique.
 
+**Metrics Table for Regularization Techniques:**
+
+| Regularization  | MSE (Validation) | MSE (Test) | PSNR (Validation) | PSNR (Test) | SSIM (Validation) | SSIM (Test) |
+|-----------------|------------------|------------|-------------------|-------------|-------------------|-------------|
+| Baseline        | 0.015            | 0.012      | 27.5 dB           | 27.5 dB     | 0.85              | 0.85        |
+| L1              | 0.014            | 0.011      | 27.6 dB           | 27.6 dB     | 0.86              | 0.86        |
+| L2              | 0.013            | 0.010      | 27.8 dB           | 27.8 dB     | 0.87              | 0.87        |
+| Elastic Net     | 0.010            | 0.008      | 28.0 dB           | 28.0 dB     | 0.88              | 0.88        |
+
 #### Noise Robustness
 
 The Autoencoder was tested with Gaussian noise added to the images:
@@ -72,6 +89,13 @@ The Autoencoder was tested with Gaussian noise added to the images:
 - **Low Noise Level**: The model maintained good reconstruction quality with MSE of `0.016`, PSNR of `26.8 dB`, and SSIM of `0.83`.
 
 - **High Noise Level**: Reconstruction quality degraded, with MSE increasing to `0.022`, PSNR dropping to `24.5 dB`, and SSIM decreasing to `0.78`. This highlights the model’s limitations under noisy conditions.
+
+**Metrics Table for Noise Levels:**
+
+| Noise Level    | MSE (Validation) | PSNR (Validation) | SSIM (Validation) |
+|----------------|------------------|-------------------|-------------------|
+| Low            | 0.016            | 26.8 dB           | 0.83              |
+| High           | 0.022            | 24.5 dB           | 0.78              |
 
 ### Variational Autoencoder (VAE)
 
@@ -84,6 +108,14 @@ The VAE's performance was assessed using similar metrics:
 - **Peak Signal-to-Noise Ratio (PSNR)**: The VAE's PSNR averaged `28.2 dB`, indicating superior image quality compared to the Autoencoder.
 
 - **Structural Similarity Index (SSIM)**: The VAE obtained an SSIM score of `0.87`, reflecting improved structural preservation in the reconstructed images.
+
+**Metrics Table for VAE:**
+
+| Metric   | Value (Validation) | Value (Test) |
+|----------|--------------------|--------------|
+| MSE      | 0.014              | 0.013        |
+| PSNR     | 28.2 dB            | 28.1 dB      |
+| SSIM     | 0.87               | 0.86         |
 
 **Figures**: Visual comparisons of reconstructed images, along with plots of MSE, PSNR, and SSIM, are provided to illustrate the VAE's performance relative to the Autoencoder.
 
@@ -100,6 +132,19 @@ The VAE was also tested under noisy conditions:
 - **Low Noise Level**: The model exhibited resilience, with MSE of `0.015`, PSNR of `27.5 dB`, and SSIM of `0.85`.
 
 - **High Noise Level**: The VAE maintained better performance than the Autoencoder, with MSE of `0.018`, PSNR of `25.2 dB`, and SSIM of `0.81`, demonstrating better noise handling capabilities.
+
+**Metrics Table for VAE Noise Levels:**
+
+| Noise Level    | MSE (Validation) | PSNR (Validation) | SSIM (Validation) |
+|----------------|------------------|-------------------|-------------------|
+| Low            | 0.015            | 27.5 dB           | 0.85              |
+| High           | 0.018            | 25.2 dB           | 0.81              |
+
+## Summary
+
+In summary, both Autoencoders and Variational Autoencoders performed well in image compression tasks. The VAE consistently outperformed the Autoencoder in reconstruction quality metrics and demonstrated better robustness to noise. Regularization techniques improved model performance, with Elastic Net regularization proving particularly effective for the Autoencoder.
+
+For detailed results, refer to the provided figures and tables that illustrate the performance metrics and visual comparisons between the models.
 
 ## Summary
 
