@@ -1,98 +1,51 @@
-# Face Image Compression
+Performance Analysis of VAE and Autoencoder Architectures
+Overview
+This project performs a comprehensive analysis of Variational Autoencoders (VAE) and traditional Autoencoders (AE) to evaluate their performance in image compression tasks. The study focuses on the impact of various model parameters and configurations on key performance metrics, including reconstruction quality, compression ratio, and noise robustness.
 
-## Introduction
+Authors
+Ram Binshtock: rambinshtock@campus.technion.ac.il
+Sahar Zeltzer: saharzeltzer@campus.technion.ac.il
+Abstract
+This study investigates how different configurations and parameters affect the performance of image compression using deep neural network architectures, specifically Variational Autoencoders (VAE) and traditional Autoencoders. Metrics such as Mean Squared Error (MSE), Peak Signal-to-Noise Ratio (PSNR), and Structural Similarity Index (SSIM) are used to assess reconstruction quality. Various aspects including regularization techniques (L1, L2), noise robustness, and more are analyzed. The findings aim to guide the optimization of VAE and AE architectures for improved image compression.
 
-The Face Image Compression project investigates the use of deep learning models, specifically Autoencoders (AE) and Variational Autoencoders (VAE), for compressing and reconstructing face images. This project aims to demonstrate the effectiveness of these models in reducing image size while preserving quality and compare their performance.
+Introduction
+Autoencoders and Variational Autoencoders are crucial tools for dimension reduction and image compression. Autoencoders, introduced in 2006, learn efficient data representations by compressing input data into a latent space and reconstructing it. VAEs, introduced in 2013, enhance this approach with probabilistic elements, enabling the generation of new data samples. This project analyzes the impact of various parameters on these models' performance, with a focus on reconstruction quality and compression efficiency.
 
-## Project Goal
+Baseline Architectures
+Autoencoder
+Architecture: A convolutional Autoencoder with two convolutional layers for encoding and two transposed convolutional layers for decoding.
+Activation Functions: ReLU activations in the encoder, ReLU and Sigmoid activations in the decoder.
+Training: Mean Squared Error (MSE) loss, Adam optimizer with a learning rate of 0.001, weight decay of 1e-5, trained for 200 epochs.
+Variational Autoencoder (VAE)
+Architecture: The encoder consists of three linear layers (128x128 input to 512 dimensions, then to 200 dimensions for mean and log variance). The decoder consists of two linear layers (200 to 512 dimensions and 512 to 128x128 dimensions).
+Activation Functions: ReLU activations in the encoder, Sigmoid activation in the decoder.
+Training: A combination of reconstruction loss and KL divergence, optimized with Adam for 200 epochs.
+Dataset
+The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 grayscale images of faces. The dataset is split into:
 
-The primary goal of this project is to explore and evaluate the capabilities of AE and VAE models for face image compression. We aim to:
+Train: 70% (49,000 images)
+Validation: 10% (7,000 images)
+Test: 20% (14,000 images)
+Download the dataset here.
 
-- Develop and implement AE and VAE models for image compression.
-- Compare the performance of these models in terms of image quality and compression efficiency.
-- Provide a clear understanding of how these models work and their practical applications.
-
-## Method
-
-### Autoencoder (AE)
-
-The AE model is designed to compress face images into a lower-dimensional latent space and then reconstruct them. It consists of:
-
-- **Encoder**: Compresses the input image into a lower-dimensional representation.
-- **Decoder**: Reconstructs the image from the compressed representation.
-
-### Variational Autoencoder (VAE)
-
-The VAE model extends the AE by introducing probabilistic layers. It includes:
-
-- **Encoder**: Produces a probability distribution over the latent space instead of a fixed vector.
-- **Decoder**: Samples from this distribution to reconstruct the image.
-
-### Training
-
-Both models are trained on face image datasets using the following steps:
-
-1. **Preprocessing**: Resizing and normalizing images.
-2. **Training**: Using reconstruction loss and, for VAE, additional KL divergence loss.
-3. **Evaluation**: Assessing image quality through visual inspection and quantitative metrics.
-
-## Experiments and Results
-
-### Autoencoder
-
-- **Architecture**: A basic AE with fully connected layers.
-- **Results**: Demonstrated reasonable reconstruction quality with moderate compression.
-
-### Variational Autoencoder
-
-- **Architecture**: VAE with probabilistic latent variables.
-- **Results**: Provided improved reconstruction quality and regularization compared to AE, with enhanced handling of variability in the data.
-
-### Comparison
-
-- **Image Quality**: VAE generally produced higher-quality reconstructions with better handling of complex features.
-- **Compression Efficiency**: Both models achieved significant compression, but VAE showed more robustness in retaining image details.
-
-## Conclusions
-
-The project confirmed that both AE and VAE are effective for face image compression. VAE, with its probabilistic approach, outperformed AE in terms of image quality and robustness. These findings suggest that VAE is a promising model for practical image compression applications.
-
-## Future Work
-
-- **Model Enhancement**: Explore advanced architectures and techniques to further improve compression efficiency and image quality.
-- **Data Variability**: Test models on diverse datasets to evaluate generalization capabilities.
-- **Real-world Applications**: Investigate the deployment of these models in real-world scenarios, such as mobile or web applications.
-
-## How to Run
-
-### 1. Clone the Repository
-
-Clone the repository to your local machine:
-
-```bash
-git clone https://github.com/rambinshtokc/face-image-compression.git
-cd face-image-compression
-
-2. Set Up Your Environment
-Create and activate a virtual environment:
-
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install the required packages:
-
-bash
-Copy code
-pip install -r requirements.txt
-3. Run the Notebooks
-Launch Jupyter Notebook and open the notebooks:
-
-bash
-Copy code
-jupyter notebook AE.ipynb
-jupyter notebook VAE.ipynb
-Follow the instructions in each notebook to run the experiments and view results.
-
+Methods and Metrics
+Metrics: MSE, PSNR, SSIM to evaluate reconstruction quality.
+Regularization Techniques: L1 and L2 regularization, Elastic Net.
+Noise Robustness: Gaussian noise added to assess reconstruction under noisy conditions.
+Results
+Autoencoder
+Reconstruction Quality: Detailed results of MSE, SSIM, and PSNR are provided in tables and figures.
+Regularization Types: Impact on loss function and reconstructed images shown.
+Noise Robustness: Effect of Gaussian noise on reconstruction quality and images demonstrated.
+Variational Autoencoder
+Reconstruction Quality: Comparative analysis of reconstruction metrics.
+Regularization Types: Impact on loss function and generated images.
+Noise Robustness: Analysis of model performance under noisy conditions.
 Ethics Statement
-This project adheres to ethical guidelines in machine learning and data science. We ensure that all data used is anonymized and handled with confidentiality. The models and methods presented aim to advance knowledge and applications in image compression while respecting privacy and ethical considerations.
+This project acknowledges the ethical considerations in image compression, particularly regarding diverse facial features. The models are trained on specific datasets and may not generalize to all facial types. It is crucial to highlight these limitations when presenting results to stakeholders and ensure models do not damage unique features, such as tattoos.
+
+Contact
+For further information or inquiries, please contact:
+
+Ram Binshtock: rambinshtock@campus.technion.ac.il
+Sahar Zeltzer: saharzeltzer@campus.technion.ac.il
