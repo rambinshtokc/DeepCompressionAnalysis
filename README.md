@@ -1,74 +1,98 @@
-Face Image Compression Using Autoencoders and Variational Autoencoders
-Overview
-This project explores the effectiveness of Autoencoders (AEs) and Variational Autoencoders (VAEs) in compressing face images. The study focuses on evaluating various regularization techniques to determine the best approach for different image conditions, such as clean and noisy datasets.
+# Face Image Compression
 
-Project Objectives
-Evaluate Performance: Compare the performance of AEs and VAEs in compressing face images.
-Assess Regularization Techniques: Investigate the impact of L1, L2, and combined regularization methods on the compression quality, particularly under clean and noisy conditions.
-Enhance Robustness: Identify strategies that improve the robustness of compressed images against noise.
-Key Findings
-Compression Quality: Autoencoders (AEs) generally provided superior compression quality compared to Variational Autoencoders (VAEs) for face images.
-Regularization Impact:
-L2 Regularization and No Regularization performed best with clean images, maintaining high-quality reconstruction.
-L1 Regularization and L1 + L2 Regularization improved robustness and performance in noisy conditions, offering better resilience against noise.
-Methodology
-Dataset: The project utilized a dataset of face images for training and evaluation.
-Model Architectures:
-Autoencoder (AE): A standard Autoencoder architecture with no stochastic component.
-Variational Autoencoder (VAE): An architecture that introduces a probabilistic element, enabling more diverse latent space exploration.
-Regularization Techniques:
-L1 Regularization: Encourages sparsity by penalizing the absolute value of weights.
-L2 Regularization: Penalizes the square of weights, discouraging large weight values.
-L1 + L2 Regularization (Elastic Net): Combines L1 and L2 regularization to balance sparsity and small weights.
-Evaluation Metrics: The models were assessed based on reconstruction quality, particularly focusing on how well they preserved image details under various regularization schemes.
-Implementation
-Prerequisites
-Python 3.x
-TensorFlow or PyTorch (depending on your preference)
-NumPy
-Matplotlib
-Installation
-Clone the repository:
+## Introduction
+
+The Face Image Compression project investigates the use of deep learning models, specifically Autoencoders (AE) and Variational Autoencoders (VAE), for compressing and reconstructing face images. This project aims to demonstrate the effectiveness of these models in reducing image size while preserving quality and compare their performance.
+
+## Project Goal
+
+The primary goal of this project is to explore and evaluate the capabilities of AE and VAE models for face image compression. We aim to:
+
+- Develop and implement AE and VAE models for image compression.
+- Compare the performance of these models in terms of image quality and compression efficiency.
+- Provide a clear understanding of how these models work and their practical applications.
+
+## Method
+
+### Autoencoder (AE)
+
+The AE model is designed to compress face images into a lower-dimensional latent space and then reconstruct them. It consists of:
+
+- **Encoder**: Compresses the input image into a lower-dimensional representation.
+- **Decoder**: Reconstructs the image from the compressed representation.
+
+### Variational Autoencoder (VAE)
+
+The VAE model extends the AE by introducing probabilistic layers. It includes:
+
+- **Encoder**: Produces a probability distribution over the latent space instead of a fixed vector.
+- **Decoder**: Samples from this distribution to reconstruct the image.
+
+### Training
+
+Both models are trained on face image datasets using the following steps:
+
+1. **Preprocessing**: Resizing and normalizing images.
+2. **Training**: Using reconstruction loss and, for VAE, additional KL divergence loss.
+3. **Evaluation**: Assessing image quality through visual inspection and quantitative metrics.
+
+## Experiments and Results
+
+### Autoencoder
+
+- **Architecture**: A basic AE with fully connected layers.
+- **Results**: Demonstrated reasonable reconstruction quality with moderate compression.
+
+### Variational Autoencoder
+
+- **Architecture**: VAE with probabilistic latent variables.
+- **Results**: Provided improved reconstruction quality and regularization compared to AE, with enhanced handling of variability in the data.
+
+### Comparison
+
+- **Image Quality**: VAE generally produced higher-quality reconstructions with better handling of complex features.
+- **Compression Efficiency**: Both models achieved significant compression, but VAE showed more robustness in retaining image details.
+
+## Conclusions
+
+The project confirmed that both AE and VAE are effective for face image compression. VAE, with its probabilistic approach, outperformed AE in terms of image quality and robustness. These findings suggest that VAE is a promising model for practical image compression applications.
+
+## Future Work
+
+- **Model Enhancement**: Explore advanced architectures and techniques to further improve compression efficiency and image quality.
+- **Data Variability**: Test models on diverse datasets to evaluate generalization capabilities.
+- **Real-world Applications**: Investigate the deployment of these models in real-world scenarios, such as mobile or web applications.
+
+## How to Run
+
+### 1. Clone the Repository
+
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/rambinshtokc/face-image-compression.git
+cd face-image-compression
+
+2. Set Up Your Environment
+Create and activate a virtual environment:
 
 bash
 Copy code
-git clone https://github.com/yourusername/face-image-compression.git
-cd face-image-compression
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 Install the required packages:
 
 bash
 Copy code
 pip install -r requirements.txt
-Usage
-Training:
+3. Run the Notebooks
+Launch Jupyter Notebook and open the notebooks:
 
-To train the Autoencoder model:
 bash
 Copy code
-python train_ae.py --dataset /path/to/face_images --regularization L2
-To train the Variational Autoencoder model:
-bash
-Copy code
-python train_vae.py --dataset /path/to/face_images --regularization L1
-Evaluation:
+jupyter notebook AE.ipynb
+jupyter notebook VAE.ipynb
+Follow the instructions in each notebook to run the experiments and view results.
 
-Evaluate the trained model on a test set:
-bash
-Copy code
-python evaluate.py --model ae --dataset /path/to/test_images
-Results:
-
-The output will include the reconstructed images and evaluation metrics for each regularization method.
-Future Work
-Advanced Regularization: Explore more sophisticated regularization techniques and hybrid approaches.
-Loss Functions: Investigate different loss functions and their impact on compression quality.
-Latent Space Exploration: Study the latent space representations in greater detail.
-Additional Techniques: Implement dropout and advanced data augmentation methods to further enhance model performance.
-Contributing
-Contributions are welcome! Please feel free to submit a pull request or open an issue.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-Acknowledgements
-Special thanks to all contributors and collaborators who made this project possible
+Ethics Statement
+This project adheres to ethical guidelines in machine learning and data science. We ensure that all data used is anonymized and handled with confidentiality. The models and methods presented aim to advance knowledge and applications in image compression while respecting privacy and ethical considerations.
