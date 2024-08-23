@@ -16,6 +16,8 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 
 ### Autoencoder
 
+![Autoencoder Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png)
+
 - **Architecture**: Convolutional Autoencoder with two convolutional layers for encoding and two transposed convolutional layers for decoding.
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
