@@ -17,8 +17,11 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 ### Autoencoder
 
 ![Autoencoder Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png)
-*Figure 1: Diagram of the Autoencoder Architecture.*  
-*Source: [1]*
+<p align="center">
+  <img src="https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png" alt="Autoencoder Architecture">
+</p>
+
+<p align="center"><i>Figure 1: Diagram of the Autoencoder Architecture.<br>Source: <a href="https://lilianweng.github.io/posts/2018-08-12-vae/">Lilian Weng's Blog</a></i></p>
 
 - **Architecture**: Convolutional Autoencoder with two convolutional layers for encoding and two transposed convolutional layers for decoding.
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
