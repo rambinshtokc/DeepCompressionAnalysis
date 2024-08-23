@@ -15,8 +15,6 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 ## Baseline Architectures
 
 ### Autoencoder
-
-![Autoencoder Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png)
 <p align="center">
   <img src="https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png" alt="Autoencoder Architecture">
 </p>
