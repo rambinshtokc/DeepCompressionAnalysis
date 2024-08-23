@@ -131,7 +131,7 @@ Both VAE and AE architectures exhibit strengths and limitations in image compres
 1. Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. [arXiv:1312.6114](https://arxiv.org/abs/1312.6114).
 2. Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.
 3. Kristiadi, A. (2016). Variational Autoencoder: Intuition and Implementation. [Agustinus Kristiadi's Tech Blog](https://agustinus.kristia.de/techblog/2016/12/10/variational-autoencoder/).
-4. Tal Daube. (2020). Variational Autoencoder Tutorial. [GitHub Repository](https://github.com/taldatech/ee046202-unsupervised-learning-data-analysis/blob/master/ee046202_tutorial_09_deep_unsupervised_vae_2.ipynb).
+4. Tal Daniel. (2020). Variational Autoencoder Tutorial. [GitHub Repository](https://github.com/taldatech/ee046202-unsupervised-learning-data-analysis/blob/master/ee046202_tutorial_09_deep_unsupervised_vae_2.ipynb).
 5. Flickr Faces 70k Thumbnails 128x128 Dataset. [Download the dataset here](https://www.kaggle.com/datasets/imcr00z/flickr-faces-70k-thumbnails-128x128).
 6. Autoencoder Implementation. Code adapted from: [Santh Tadi's Autoencoders Image Compression](https://github.com/santhtadi/AutoEncodersImageCompression).
 
