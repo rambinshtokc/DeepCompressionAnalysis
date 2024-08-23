@@ -1,4 +1,5 @@
-# Performance Analysis of VAE and Autoencoder Architectures
+# Performance Analysis of Variational Autoencoder (VAE) and Autoencoder Architectures
+
 
 ## Overview
 
