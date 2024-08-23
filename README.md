@@ -45,6 +45,7 @@ Both notebooks are designed to be user-friendly and include detailed instruction
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
 
 #### Regularization Techniques
+**Results
 
 **Metrics Table for Regularization Techniques:**
 
