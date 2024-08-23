@@ -21,6 +21,18 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 
 [Download the dataset here](https://www.kaggle.com/datasets/imcr00z/flickr-faces-70k-thumbnails-128x128).
 
+
+## Jupyter Notebooks
+
+This repository includes two Jupyter notebooks to assist with data preparation, model training, and performance evaluation:
+
+1. **`AE.ipynb`**: This notebook provides a step-by-step guide for preparing the dataset, training the Autoencoder model, and evaluating its performance. It covers data loading, model architecture setup, training, and performance analysis.
+
+2. **`VAE.ipynb`**: This notebook guides the user through the process of preparing the dataset, training the Variational Autoencoder model, and evaluating its performance. It includes steps for data loading, model architecture setup, training, and performance evaluation.
+
+Both notebooks are designed to be user-friendly and include detailed instructions to facilitate understanding and implementation of the experiments.
+
+
 ## Baseline Architectures
 
 ### Autoencoder
@@ -99,16 +111,6 @@ The VAE demonstrated better robustness to noise compared to the Autoencoder. The
 
 1. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
    *Figure 9: Impact of noise and regularization on VAE performance.*
-
-## Jupyter Notebooks
-
-This repository includes two Jupyter notebooks to assist with data preparation, model training, and performance evaluation:
-
-1. **`AE.ipynb`**: This notebook provides a step-by-step guide for preparing the dataset, training the Autoencoder model, and evaluating its performance. It covers data loading, model architecture setup, training, and performance analysis.
-
-2. **`VAE.ipynb`**: This notebook guides the user through the process of preparing the dataset, training the Variational Autoencoder model, and evaluating its performance. It includes steps for data loading, model architecture setup, training, and performance evaluation.
-
-Both notebooks are designed to be user-friendly and include detailed instructions to facilitate understanding and implementation of the experiments.
 
 ## Conclusion
 
