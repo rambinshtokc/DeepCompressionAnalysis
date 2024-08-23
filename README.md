@@ -125,4 +125,37 @@ The VAE demonstrated better robustness to noise compared to the Autoencoder. The
 
 ## Conclusion
 
-Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to the AE. However, the VAE demonstrates better performance with regular
+Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to the AE. However, the VAE demonstrates better performance with regularization techniques, particularly Elastic Net, and shows improved robustness to noise.
+
+### Key Findings:
+
+1. **Autoencoder (AE):**
+   - Better reconstruction quality with lower MSE and higher PSNR and SSIM compared to the VAE.
+   - Regularization techniques (L1, L2, and Elastic Net) improved the AE's performance, with Elastic Net providing the most balanced improvements.
+   - AE's performance degrades more significantly under noise, but regularization helps mitigate this to some extent.
+
+2. **Variational Autoencoder (VAE):**
+   - Lower reconstruction quality in terms of MSE, PSNR, and SSIM compared to AE, but more robust to noise.
+   - Regularization techniques significantly enhance VAE performance, with Elastic Net again providing the best results.
+   - The VAE maintains better performance under noisy conditions, making it more suitable for applications where data is noisy or where robustness is critical.
+
+## Future Work
+
+Further research could explore:
+- **Hybrid Architectures:** Combining the strengths of AE and VAE architectures to develop a model that leverages the reconstruction quality of AE with the robustness and generative capabilities of VAE.
+- **Advanced Regularization Techniques:** Experimenting with more sophisticated regularization techniques, such as dropout, batch normalization, and advanced Bayesian methods.
+- **Real-World Applications:** Applying these findings to real-world image compression tasks, such as medical imaging, where the balance between quality and robustness is crucial.
+
+## References
+
+- Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. arXiv preprint arXiv:1312.6114.
+- Hinton, G. E., & Salakhutdinov, R. R. (2006). Reducing the Dimensionality of Data with Neural Networks. Science, 313(5786), 504-507.
+
+## Acknowledgments
+
+We would like to thank the developers of PyTorch, TensorFlow, and other open-source machine learning libraries, as well as the contributors to datasets and pre-trained models that made this research possible.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
