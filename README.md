@@ -133,7 +133,7 @@ Both VAE and AE architectures exhibit strengths and limitations in image compres
 
 ## References
 
-1.G. E. Hinton* and *R. R. Salakhutdinov*. [Reducing the dimensionality of data with neural networks](https://doi.org/10.1126/science.1127647). *SCIENCE*, 313:504–507, 2006.
+1. G. E. Hinton and R. R. Salakhutdinov*. [Reducing the dimensionality of data with neural networks](https://doi.org/10.1126/science.1127647). SCIENCE, 313:504–507, 2006.
 2.  Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. [arXiv:1312.6114](https://arxiv.org/abs/1312.6114).
 3. Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.
 4. Kristiadi, A. (2016). Variational Autoencoder: Intuition and Implementation. [Agustinus Kristiadi's Tech Blog](https://agustinus.kristia.de/techblog/2016/12/10/variational-autoencoder/).
