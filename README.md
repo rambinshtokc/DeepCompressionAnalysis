@@ -105,7 +105,7 @@ The Autoencoder exhibited a decline in reconstruction quality with increasing no
 
 **Figures:**
 
-1. ![VAE Regularization Images](Figures/VAE_noise_reg_images.png)  
+1. ![VAE Regularization Images](Figures/vae_reg_images_2.png)  
    *Figure 6: Variational Autoencoder regularization images demonstrating the effect of different regularization techniques.*
 
 2. ![VAE Training Loss](Figures/VAE_train_loss.png)  
