@@ -49,7 +49,7 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 
 #### Noise Robustness
 
-The Autoencoder exhibited a decline in reconstruction quality with increasing noise levels. The MSE increased from `0.012` to `0.020` as Gaussian noise with a standard deviation of `0.1` was added. Regularization techniques improved the robustness to noise, particularly Elastic Net, which provided a more stable reconstruction quality under noisy conditions.
+The Autoencoder exhibited a decline in reconstruction quality with increasing noise levels. The MSE increased from `0.00426` to `0.00815` as Gaussian noise with a standard deviation of `0.1` was added. Regularization techniques improved the robustness to noise, particularly Elastic Net, which provided a more stable reconstruction quality under noisy conditions.
 
 **Figures:**
 
