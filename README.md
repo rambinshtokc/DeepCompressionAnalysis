@@ -23,34 +23,6 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
 
-### Variational Autoencoder (VAE)
-
-![Variational Autoencoder (VAE) Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)  
-*Figure 2: Diagram of the Variational Autoencoder (VAE) Architecture. Source: [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)*
-
-- **Architecture**: Encoder with three linear layers (128x128 input to 512 dimensions, then to 200 dimensions for mean and log variance); Decoder with two linear layers (200 to 512 dimensions and 512 to 128x128 dimensions).
-- **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
-- **Training**: Combination of reconstruction loss and KL divergence, optimized with Adam for 200 epochs.
-
-## Dataset
-
-The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 grayscale images of faces. The dataset is split into:
-- **Train**: 70% (49,000 images)
-- **Validation**: 10% (7,000 images)
-- **Test**: 20% (14,000 images)
-
-[Download the dataset here](https://www.kaggle.com/datasets/imcr00z/flickr-faces-70k-thumbnails-128x128).
-
-## Methods and Metrics
-
-- **Metrics**: MSE, PSNR, SSIM to evaluate reconstruction quality.
-- **Regularization Techniques**: L1 and L2 regularization, Elastic Net.
-- **Noise Robustness**: Gaussian noise added to assess reconstruction under noisy conditions.
-
-## Results
-
-### Autoencoder
-
 #### Reconstruction Quality
 
 - **Mean Squared Error (MSE)**: The Autoencoder achieved an MSE of `0.015` on the validation set, which improved to `0.012` after tuning regularization parameters.
@@ -83,12 +55,28 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 **Figures:**
 
 1. ![Autoencoder Regularization Images](Figures/AE_reg_images2.png)  
-   *Figure 3: Autoencoder regularization images showing the effect of different regularization techniques.*
+   *Figure 2: Autoencoder regularization images showing the effect of different regularization techniques.*
 
-2. ![Autoencoder Histogram](Figures/AE_hist.png)  
-   *Figure 4: Histogram of pixel values in reconstructed images.*
+2. ![Autoencoder Histogram](Figures/AE_loss.png)  
+   *Figure 3: Histogram of pixel values in reconstructed images.*
+
+#### Noise Robustness
+
+The Autoencoder exhibited a decline in reconstruction quality with increasing noise levels. The MSE increased from `0.012` to `0.020` as Gaussian noise with a standard deviation of `0.1` was added. Regularization techniques improved the robustness to noise, particularly Elastic Net, which provided a more stable reconstruction quality under noisy conditions.
+
+**Figures:**
+
+1. ![AE Noise Regularization Images](Figures/AE_noise_reg_images.png)  
+   *Figure 4: Impact of noise and regularization on Autoencoder performance.*
 
 ### Variational Autoencoder (VAE)
+
+![Variational Autoencoder (VAE) Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)  
+*Figure 5: Diagram of the Variational Autoencoder (VAE) Architecture. Source: [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)*
+
+- **Architecture**: Encoder with three linear layers (128x128 input to 512 dimensions, then to 200 dimensions for mean and log variance); Decoder with two linear layers (200 to 512 dimensions and 512 to 128x128 dimensions).
+- **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
+- **Training**: Combination of reconstruction loss and KL divergence, optimized with Adam for 200 epochs.
 
 #### Reconstruction Quality
 
@@ -121,37 +109,20 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 
 **Figures:**
 
-1. ![VAE Regularization Images](Figures/VAE_reg_images.png)  
-   *Figure 7: VAE regularization images demonstrating the effect of different regularization techniques.*
+1. ![VAE Regularization Images](Figures/VAE_noise_reg_images.png)  
+   *Figure 6: Variational Autoencoder regularization images demonstrating the effect of different regularization techniques.*
 
-2. ![VAE Histogram](Figures/VAE_hist.png)  
-   *Figure 8: Histogram of pixel values in reconstructed images from VAE.*
+2. ![VAE Histogram](Figures/VAE_train_loss.png)  
+   *Figure 7: Histogram of pixel values in reconstructed images from VAE.*
 
-## Discussion on Noise Robustness
-
-### Autoencoder
-
-The Autoencoder exhibited a decline in reconstruction quality with increasing noise levels. The MSE increased from `0.012` to `0.020` as Gaussian noise with a standard deviation of `0.1` was added. Regularization techniques improved the robustness to noise, particularly Elastic Net, which provided a more stable reconstruction quality under noisy conditions.
-
-**Figures:**
-
-1. ![AE Noise Loss](Figures/AE_noise_loss.png)  
-   *Figure 5: Reconstruction loss with varying noise levels in the Autoencoder model.*
-
-2. ![AE Noise Regularization Images](Figures/AE_noise_reg_images.png)  
-   *Figure 6: Impact of noise and regularization on Autoencoder performance.*
-
-### Variational Autoencoder (VAE)
+#### Noise Robustness
 
 The VAE demonstrated better robustness to noise compared to the Autoencoder. The MSE increase with noise was less pronounced, going from `0.015` to `0.018` under similar conditions. The probabilistic nature of the VAE contributed to better handling of noisy inputs. Regularization further enhanced this robustness, with Elastic Net showing the most significant improvement.
 
 **Figures:**
 
-1. ![VAE Noise Loss](Figures/VAE_noise_loss.png)  
-   *Figure 9: Reconstruction loss with varying noise levels in the VAE model.*
-
-2. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
-   *Figure 10: Impact of noise and regularization on VAE performance.*
+1. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
+   *Figure 8: Impact of noise and regularization on VAE performance.*
 
 ## Conclusion
 
