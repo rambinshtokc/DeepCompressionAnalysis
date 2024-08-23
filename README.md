@@ -115,17 +115,21 @@ The VAE demonstrated better robustness to noise compared to the Autoencoder. The
 
 ## Conclusion
 
-Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to the AE. However, the VAE demonstrates better performance with regularization techniques, particularly Elastic Net, and shows improved robustness to noise.
+Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. 
 
-### Key Findings:
+1. **L2 Regularization** is optimal for compressing clean images, both for VAE and AE.
+2. **L1 Regularization** or a combination of **L1 and L2 Regularization** enhances performance in noisy conditions, particularly for VAE.
+3. **Autoencoders (AEs)** may be more suitable than VAEs for high-quality face image compression tasks.
+
+**Key Findings:**
 
 1. **Autoencoder (AE):**
    - Better reconstruction quality with lower MSE and higher PSNR and SSIM values.
    - Regularization techniques such as Elastic Net enhance robustness to noise.
 
 2. **Variational Autoencoder (VAE):**
-   - Generally less effective in terms of reconstruction quality compared to AE.
-   - More robust to noise and benefits from regularization, particularly Elastic Net, for handling noisy data.
+   - Improved noise robustness compared to AE.
+   - Regularization techniques, especially Elastic Net, provide significant improvements in handling noisy data.
 
 ## References
 
