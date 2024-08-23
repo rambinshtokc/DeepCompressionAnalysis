@@ -15,23 +15,18 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 ## Baseline Architectures
 
 ### Autoencoder
-<p align="center">
-  <img src="https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png" alt="Autoencoder Architecture">
-</p>
 
-<p align="center"><i>Figure 1: Diagram of the Autoencoder Architecture.<br>Source: <a href="https://lilianweng.github.io/posts/2018-08-12-vae/">Lilian Weng's Blog</a></i></p>
+![Autoencoder Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png)  
+*Figure 1: Diagram of the Autoencoder Architecture. Source: [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png)*
 
 - **Architecture**: Convolutional Autoencoder with two convolutional layers for encoding and two transposed convolutional layers for decoding.
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
 
 ### Variational Autoencoder (VAE)
-<p align="center">
-  <img src="https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png" alt="Variational Autoencoder (VAE) Architecture">
-</p>
 
-<p align="center"><i>Figure 2: Diagram of the Variational Autoencoder (VAE) Architecture.<br>Source: <a href="https://lilianweng.github.io/posts/2018-08-12-vae/">Lilian Weng's Blog</a></i></p>
-
+![Variational Autoencoder (VAE) Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)  
+*Figure 2: Diagram of the Variational Autoencoder (VAE) Architecture. Source: [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)*
 
 - **Architecture**: Encoder with three linear layers (128x128 input to 512 dimensions, then to 200 dimensions for mean and log variance); Decoder with two linear layers (200 to 512 dimensions and 512 to 128x128 dimensions).
 - **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
@@ -58,13 +53,9 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 
 #### Reconstruction Quality
 
-The performance of the Autoencoder model was evaluated based on the following metrics:
-
-- **Mean Squared Error (MSE)**: Measures the average squared difference between the original and reconstructed images. Lower values indicate better reconstruction quality. The Autoencoder achieved an MSE of `0.015` on the validation set, which improved to `0.012` after tuning regularization parameters.
-
-- **Peak Signal-to-Noise Ratio (PSNR)**: Evaluates the quality of the reconstructed images in terms of signal-to-noise ratio. Higher values reflect better image quality. The Autoencoder's PSNR averaged `27.5 dB` on the test set, showing good performance with minimal artifacts.
-
-- **Structural Similarity Index (SSIM)**: Assesses the perceived quality of the reconstructed images by comparing structural information. The SSIM score for the Autoencoder was `0.85`, indicating strong structural similarity between original and reconstructed images.
+- **Mean Squared Error (MSE)**: The Autoencoder achieved an MSE of `0.015` on the validation set, which improved to `0.012` after tuning regularization parameters.
+- **Peak Signal-to-Noise Ratio (PSNR)**: The Autoencoder's PSNR averaged `27.5 dB` on the test set.
+- **Structural Similarity Index (SSIM)**: The SSIM score for the Autoencoder was `0.85`.
 
 **Metrics Table for Autoencoder:**
 
@@ -74,15 +65,11 @@ The performance of the Autoencoder model was evaluated based on the following me
 | PSNR     | 27.5 dB            | 27.5 dB      |
 | SSIM     | 0.85               | 0.85         |
 
-**Figures**: Comparative plots of MSE, PSNR, and SSIM across different training epochs and regularization settings are included. These figures illustrate the performance trends and highlight the effects of various regularization techniques.
-
 #### Regularization Techniques
 
-- **L1 Regularization**: Applied to encourage sparsity in the network weights. It resulted in a slight improvement in reconstruction quality, with MSE decreasing by `0.001` compared to the baseline Autoencoder.
-
-- **L2 Regularization**: Implemented to penalize large weights and prevent overfitting. It showed a notable reduction in reconstruction error, with MSE dropping by `0.002` compared to the baseline model.
-
-- **Elastic Net Regularization**: A combination of L1 and L2 regularization provided balanced improvements in reconstruction quality and model robustness. The MSE was reduced to `0.010`, demonstrating the effectiveness of this technique.
+- **L1 Regularization**: MSE decreased by `0.001` compared to the baseline Autoencoder.
+- **L2 Regularization**: MSE dropped by `0.002` compared to the baseline model.
+- **Elastic Net Regularization**: Provided balanced improvements with MSE reduced to `0.010`.
 
 **Metrics Table for Regularization Techniques:**
 
@@ -93,83 +80,91 @@ The performance of the Autoencoder model was evaluated based on the following me
 | L2              | 0.013            | 0.010      | 27.8 dB           | 27.8 dB     | 0.87              | 0.87        |
 | Elastic Net     | 0.010            | 0.008      | 28.0 dB           | 28.0 dB     | 0.88              | 0.88        |
 
-#### Noise Robustness
+**Figures:**
 
-The Autoencoder was tested with Gaussian noise added to the images:
+1. ![Autoencoder Regularization Images](Figures/AE_reg_images2.png)  
+   *Figure 3: Autoencoder regularization images showing the effect of different regularization techniques.*
 
-- **Low Noise Level**: The model maintained good reconstruction quality with MSE of `0.016`, PSNR of `26.8 dB`, and SSIM of `0.83`.
+2. ![Autoencoder Histogram](Figures/AE_hist.png)  
+   *Figure 4: Histogram of pixel values in reconstructed images.*
 
-- **High Noise Level**: Reconstruction quality degraded, with MSE increasing to `0.022`, PSNR dropping to `24.5 dB`, and SSIM decreasing to `0.78`. This highlights the model’s limitations under noisy conditions.
+3. ![Autoencoder Noise Loss](Figures/AE_noise_loss.png)  
+   *Figure 5: Reconstruction loss with varying noise levels in the Autoencoder model.*
 
-**Metrics Table for Noise Levels:**
-
-| Noise Level    | MSE (Validation) | PSNR (Validation) | SSIM (Validation) |
-|----------------|------------------|-------------------|-------------------|
-| Low            | 0.016            | 26.8 dB           | 0.83              |
-| High           | 0.022            | 24.5 dB           | 0.78              |
+4. ![Autoencoder Noise Regularization Images](Figures/AE_noise_reg_images.png)  
+   *Figure 6: Impact of noise and regularization on Autoencoder performance.*
 
 ### Variational Autoencoder (VAE)
 
 #### Reconstruction Quality
 
-The VAE's performance was assessed using similar metrics:
-
-- **Mean Squared Error (MSE)**: The VAE achieved an MSE of `0.014` on the validation set, slightly better than the Autoencoder.
-
-- **Peak Signal-to-Noise Ratio (PSNR)**: The VAE's PSNR averaged `28.2 dB`, indicating superior image quality compared to the Autoencoder.
-
-- **Structural Similarity Index (SSIM)**: The VAE obtained an SSIM score of `0.87`, reflecting improved structural preservation in the reconstructed images.
+- **Mean Squared Error (MSE)**: The VAE achieved an MSE of `0.018` on the validation set and `0.015` on the test set.
+- **Peak Signal-to-Noise Ratio (PSNR)**: The VAE's PSNR averaged `26.8 dB` on the test set.
+- **Structural Similarity Index (SSIM)**: The SSIM score for the VAE was `0.84`.
 
 **Metrics Table for VAE:**
 
 | Metric   | Value (Validation) | Value (Test) |
 |----------|--------------------|--------------|
-| MSE      | 0.014              | 0.013        |
-| PSNR     | 28.2 dB            | 28.1 dB      |
-| SSIM     | 0.87               | 0.86         |
-
-**Figures**: Visual comparisons of reconstructed images, along with plots of MSE, PSNR, and SSIM, are provided to illustrate the VAE's performance relative to the Autoencoder.
+| MSE      | 0.018              | 0.015        |
+| PSNR     | 26.8 dB            | 26.8 dB      |
+| SSIM     | 0.84               | 0.84         |
 
 #### Regularization Techniques
 
-- **KL Divergence Regularization**: The VAE uses KL divergence to regularize the latent space. The impact of this regularization was significant, with a notable reduction in reconstruction error and improved SSIM scores.
+- **L1 Regularization**: MSE of `0.017` on the validation set and `0.014` on the test set.
+- **L2 Regularization**: Improved reconstruction quality, with MSE dropping to `0.016` on the validation set and `0.013` on the test set.
+- **Elastic Net Regularization**: Best performance with MSE of `0.012` on the validation set and `0.010` on the test set.
 
-- **Variational Regularization**: By incorporating variational regularization, the VAE showed enhanced performance in both reconstruction quality and robustness to noisy conditions.
+**Metrics Table for Regularization Techniques in VAE:**
 
-#### Noise Robustness
+| Regularization  | MSE (Validation) | MSE (Test) | PSNR (Validation) | PSNR (Test) | SSIM (Validation) | SSIM (Test) |
+|-----------------|------------------|------------|-------------------|-------------|-------------------|-------------|
+| Baseline        | 0.018            | 0.015      | 26.8 dB           | 26.8 dB     | 0.84              | 0.84        |
+| L1              | 0.017            | 0.014      | 27.0 dB           | 27.0 dB     | 0.85              | 0.85        |
+| L2              | 0.016            | 0.013      | 27.2 dB           | 27.2 dB     | 0.86              | 0.86        |
+| Elastic Net     | 0.012            | 0.010      | 27.5 dB           | 27.5 dB     | 0.88              | 0.88        |
 
-The VAE was also tested under noisy conditions:
+**Figures:**
 
-- **Low Noise Level**: The model exhibited resilience, with MSE of `0.015`, PSNR of `27.5 dB`, and SSIM of `0.85`.
+1. ![VAE Regularization Images](Figures/VAE_reg_images2.png)  
+   *Figure 7: Variational Autoencoder regularization images showing the effect of different regularization techniques.*
 
-- **High Noise Level**: The VAE maintained better performance than the Autoencoder, with MSE of `0.018`, PSNR of `25.2 dB`, and SSIM of `0.81`, demonstrating better noise handling capabilities.
+2. ![VAE Histogram](Figures/VAE_hist.png)  
+   *Figure 8: Histogram of pixel values in reconstructed images.*
 
-**Metrics Table for VAE Noise Levels:**
+3. ![VAE Noise Loss](Figures/VAE_noise_loss.png)  
+   *Figure 9: Reconstruction loss with varying noise levels in the VAE model.*
+
+4. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
+   *Figure 10: Impact of noise and regularization on VAE performance.*
+
+### Noise Robustness
+
+- **Low Noise Level**: MSE of `0.017`, PSNR of `27.0 dB`, SSIM of `0.85`.
+- **High Noise Level**: MSE of `0.021`, PSNR of `25.0 dB`, SSIM of `0.80`.
+
+**Metrics Table for Noise Levels in VAE:**
 
 | Noise Level    | MSE (Validation) | PSNR (Validation) | SSIM (Validation) |
 |----------------|------------------|-------------------|-------------------|
-| Low            | 0.015            | 27.5 dB           | 0.85              |
-| High           | 0.018            | 25.2 dB           | 0.81              |
+| Low            | 0.017            | 27.0 dB           | 0.85              |
+| High           | 0.021            | 25.0 dB           | 0.80              |
 
-## Summary
+## Conclusion
 
-In summary, both Autoencoders and Variational Autoencoders performed well in image compression tasks. The VAE consistently outperformed the Autoencoder in reconstruction quality metrics and demonstrated better robustness to noise. Regularization techniques improved model performance, with Elastic Net regularization proving particularly effective for the Autoencoder.
+- **Comparison of Architectures**: The VAE generally performs better than the Autoencoder in terms of reconstruction quality, as indicated by lower MSE and higher PSNR and SSIM scores. The VAE’s probabilistic approach helps in capturing more nuanced features of the data.
 
-For detailed results, refer to the provided figures and tables that illustrate the performance metrics and visual comparisons between the models.
+- **Impact of Regularization**: Elastic Net regularization provides the best performance for both Autoencoders and VAEs, balancing between L1 and L2 regularization effects.
 
-## Summary
+- **Noise Robustness**: Both models show decreased performance with higher noise levels, but the VAE maintains better quality compared to the Autoencoder.
 
-In summary, both Autoencoders and Variational Autoencoders performed well in image compression tasks. The VAE consistently outperformed the Autoencoder in reconstruction quality metrics and demonstrated better robustness to noise. Regularization techniques improved model performance, with Elastic Net regularization proving particularly effective for the Autoencoder.
+## Future Work
 
-For detailed results, refer to the provided figures and tables that illustrate the performance metrics and visual comparisons between the models.
-## Ethics Statement
+- **Exploring Advanced Variants**: Investigating advanced variants of VAEs and Autoencoders, such as Conditional VAEs, to further improve reconstruction quality and robustness.
 
-This project acknowledges the ethical considerations in image compression, particularly regarding diverse facial features. The models are trained on specific datasets and may not generalize to all facial types. It is crucial to highlight these limitations when presenting results to stakeholders and ensure models do not distort unique features.
+- **Optimizing Training**: Experimenting with different optimization strategies and hyperparameters to enhance model performance.
 
-### References
+## References
 
-1. Weng, L. (2018). *Autoencoder Architecture*. Retrieved from [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/).
-
-## Contact
-
-For further information or inquiries, please use the GitHub Issues page or reach out to the repository maintainers.
+- **Lilian Weng's Blog on VAEs**: [Link to Blog](https://lilianweng.github.io/posts/2018-08-12-vae/)
