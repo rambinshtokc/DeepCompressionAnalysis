@@ -22,7 +22,7 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 [Download the dataset here](https://www.kaggle.com/datasets/imcr00z/flickr-faces-70k-thumbnails-128x128).
 
 
-## Jupyter Notebooks
+## Jupyter Notebooks - Training and Evaluating Models
 
 This repository includes two Jupyter notebooks to assist with data preparation, model training, and performance evaluation:
 
