@@ -40,13 +40,13 @@ Both notebooks are designed to be user-friendly and include detailed instruction
 1. **Create a Clean Virtual Environment:**
 
    ```bash
-   pip install -r requirements.txt
-   
-2. **Install Required Packages:**
-
-   ```bash
    conda create -n vae_ae_analysis python=3.10.12
    conda activate vae_ae_analysis
+   
+3. **Install Required Packages:**
+
+   ```bash
+   pip install -r requirements.txt
    
 ## Baseline Architectures
 
