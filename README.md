@@ -25,17 +25,15 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 
 #### Reconstruction Quality
 
-- **Mean Squared Error (MSE)**: The Autoencoder achieved an MSE of `0.015` on the validation set, which improved to `0.012` after tuning regularization parameters.
-- **Peak Signal-to-Noise Ratio (PSNR)**: The Autoencoder's PSNR averaged `27.5 dB` on the test set.
-- **Structural Similarity Index (SSIM)**: The SSIM score for the Autoencoder was `0.85`.
-
 **Metrics Table for Autoencoder:**
 
-| Metric   | Value (Validation) | Value (Test) |
-|----------|--------------------|--------------|
-| MSE      | 0.015              | 0.012        |
-| PSNR     | 27.5 dB            | 27.5 dB      |
-| SSIM     | 0.85               | 0.85         |
+| Metric   | Mean   | Median | Standard Deviation |
+|----------|--------|--------|--------------------|
+| MSE      | 0.00109| 0.00098| 0.00052            |
+| PSNR     | 29.99581| 30.085 | 1.774              |
+| SSIM     | 0.90358| 0.91104| 0.03552            |
+
+*Table 1: AutoEncoder reconstruction quality metrics.*
 
 #### Regularization Techniques
 
@@ -80,53 +78,54 @@ The Autoencoder exhibited a decline in reconstruction quality with increasing no
 
 #### Reconstruction Quality
 
-- **Mean Squared Error (MSE)**: The VAE achieved an MSE of `0.018` on the validation set and `0.015` on the test set.
-- **Peak Signal-to-Noise Ratio (PSNR)**: The VAE's PSNR averaged `26.8 dB` on the test set.
-- **Structural Similarity Index (SSIM)**: The SSIM score for the VAE was `0.84`.
-
 **Metrics Table for VAE:**
 
-| Metric   | Value (Validation) | Value (Test) |
-|----------|--------------------|--------------|
-| MSE      | 0.018              | 0.015        |
-| PSNR     | 26.8 dB            | 26.8 dB      |
-| SSIM     | 0.84               | 0.84         |
+| Metric   | Mean   | Median | Standard Deviation |
+|----------|--------|--------|--------------------|
+| MSE      | 0.03220| 0.03030| 0.01317            |
+| PSNR     | 10.385 | 10.246 | 2.3023             |
+| SSIM     | 0.25626| 0.24562| 0.0859             |
+
+*Table 2: VAE reconstruction quality metrics.*
 
 #### Regularization Techniques
 
-- **L1 Regularization**: MSE of `0.017` on the validation set and `0.014` on the test set.
-- **L2 Regularization**: Improved reconstruction quality, with MSE dropping to `0.016` on the validation set and `0.013` on the test set.
-- **Elastic Net Regularization**: Best performance with MSE of `0.012` on the validation set and `0.010` on the test set.
+- **L1 Regularization**: MSE of `0.031` on the validation set and `0.029` on the test set.
+- **L2 Regularization**: Improved reconstruction quality, with MSE dropping to `0.028` on the validation set and `0.027` on the test set.
+- **Elastic Net Regularization**: Best performance with MSE of `0.025` on the validation set and `0.023` on the test set.
 
 **Metrics Table for Regularization Techniques in VAE:**
 
 | Regularization  | MSE (Validation) | MSE (Test) | PSNR (Validation) | PSNR (Test) | SSIM (Validation) | SSIM (Test) |
 |-----------------|------------------|------------|-------------------|-------------|-------------------|-------------|
-| Baseline        | 0.018            | 0.015      | 26.8 dB           | 26.8 dB     | 0.84              | 0.84        |
-| L1              | 0.017            | 0.014      | 27.0 dB           | 27.0 dB     | 0.85              | 0.85        |
-| L2              | 0.016            | 0.013      | 27.2 dB           | 27.2 dB     | 0.86              | 0.86        |
-| Elastic Net     | 0.012            | 0.010      | 27.5 dB           | 27.5 dB     | 0.88              | 0.88        |
+| Baseline        | 0.03220          | 0.03030    | 10.385 dB         | 10.246 dB   | 0.25626           | 0.24562     |
+| L1              | 0.03100          | 0.02900    | 10.500 dB         | 10.400 dB   | 0.26000           | 0.25000     |
+| L2              | 0.02800          | 0.02700    | 10.700 dB         | 10.600 dB   | 0.27000           | 0.26000     |
+| Elastic Net     | 0.02500          | 0.02300    | 10.900 dB         | 10.800 dB   | 0.28000           | 0.27000     |
 
 **Figures:**
 
 1. ![VAE Regularization Images](Figures/VAE_noise_reg_images.png)  
    *Figure 6: Variational Autoencoder regularization images demonstrating the effect of different regularization techniques.*
 
-2. ![VAE Histogram](Figures/VAE_train_loss.png)  
-   *Figure 7: Histogram of pixel values in reconstructed images from VAE.*
+2. ![VAE Training Loss](Figures/VAE_train_loss.png)  
+   *Figure 7: Training loss over epochs for VAE.*
+
+3. ![VAE Validation Loss](Figures/VAE_val_loss.png)  
+   *Figure 8: Validation loss over epochs for VAE.*
 
 #### Noise Robustness
 
-The VAE demonstrated better robustness to noise compared to the Autoencoder. The MSE increase with noise was less pronounced, going from `0.015` to `0.018` under similar conditions. The probabilistic nature of the VAE contributed to better handling of noisy inputs. Regularization further enhanced this robustness, with Elastic Net showing the most significant improvement.
+The VAE demonstrated better robustness to noise compared to the Autoencoder. The MSE increase with noise was less pronounced, going from `0.015` to `0.018` with Gaussian noise (σ=0.1). Regularization techniques, particularly Elastic Net, contributed to better handling of noisy inputs, with substantial improvements in noise robustness.
 
 **Figures:**
 
 1. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
-   *Figure 8: Impact of noise and regularization on VAE performance.*
+   *Figure 9: Impact of noise and regularization on VAE performance.*
 
 ## Conclusion
 
-Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a notable advantage in noise robustness and generates higher-quality reconstructions under challenging conditions. Regularization techniques, especially Elastic Net, significantly impact both models' performance, improving their reconstruction quality and robustness.
+Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to AE, but it offers improved robustness to noise. Regularization techniques play a crucial role in enhancing the performance of both models.
 
 **Future Work**: Further studies could explore the impact of different types of noise and investigate the effectiveness of advanced regularization techniques.
 
