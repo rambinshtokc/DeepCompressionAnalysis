@@ -55,6 +55,9 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 1. ![Autoencoder Regularization Images](Figures/AE_reg_images2.png)  
    *Figure 2: Autoencoder regularization images showing the effect of different regularization techniques.*
 
+2. ![Autoencoder Training Loss](Figures/AE_loss.png)  
+   *Figure 3: Training loss over epochs for Autoencoder.*
+
 #### Noise Robustness
 
 The Autoencoder exhibited a decline in reconstruction quality with increasing noise levels. The MSE increased from `0.012` to `0.020` as Gaussian noise with a standard deviation of `0.1` was added. Regularization techniques improved the robustness to noise, particularly Elastic Net, which provided a more stable reconstruction quality under noisy conditions.
@@ -62,12 +65,12 @@ The Autoencoder exhibited a decline in reconstruction quality with increasing no
 **Figures:**
 
 1. ![AE Noise Regularization Images](Figures/AE_noise_reg_images.png)  
-   *Figure 3: Impact of noise and regularization on Autoencoder performance.*
+   *Figure 4: Impact of noise and regularization on Autoencoder performance.*
 
 ### Variational Autoencoder (VAE)
 
 ![Variational Autoencoder (VAE) Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)  
-*Figure 4: Diagram of the Variational Autoencoder (VAE) Architecture. Source: [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)*
+*Figure 5: Diagram of the Variational Autoencoder (VAE) Architecture. Source: [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)*
 
 - **Architecture**: Encoder with three linear layers (128x128 input to 512 dimensions, then to 200 dimensions for mean and log variance); Decoder with two linear layers (200 to 512 dimensions and 512 to 128x128 dimensions).
 - **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
@@ -103,13 +106,13 @@ The Autoencoder exhibited a decline in reconstruction quality with increasing no
 **Figures:**
 
 1. ![VAE Regularization Images](Figures/VAE_noise_reg_images.png)  
-   *Figure 5: Variational Autoencoder regularization images demonstrating the effect of different regularization techniques.*
+   *Figure 6: Variational Autoencoder regularization images demonstrating the effect of different regularization techniques.*
 
 2. ![VAE Training Loss](Figures/VAE_train_loss.png)  
-   *Figure 6: Training loss over epochs for VAE.*
+   *Figure 7: Training loss over epochs for VAE.*
 
 3. ![VAE Validation Loss](Figures/VAE_val_loss.png)  
-   *Figure 7: Validation loss over epochs for VAE.*
+   *Figure 8: Validation loss over epochs for VAE.*
 
 #### Noise Robustness
 
@@ -118,13 +121,18 @@ The VAE demonstrated better robustness to noise compared to the Autoencoder. The
 **Figures:**
 
 1. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
-   *Figure 8: Impact of noise and regularization on VAE performance.*
+   *Figure 9: Impact of noise and regularization on VAE performance.*
 
 ## Conclusion
 
-Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to AE, but it offers improved robustness to noise. Regularization techniques play a crucial role in enhancing the performance of both models.
+Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to the AE. However, the VAE demonstrates better performance with regularization techniques, and it is more robust to noise. The choice between AE and VAE depends on specific requirements related to reconstruction quality, noise robustness, and the need for advanced regularization techniques.
 
-**Future Work**: Further studies could explore the impact of different types of noise and investigate the effectiveness of advanced regularization techniques.
+## Future Work
+
+Future research could explore:
+- Improving VAE reconstruction quality through architectural enhancements or advanced training techniques.
+- Investigating the effects of different types of noise and advanced regularization techniques on both AE and VAE performance.
+- Comparing the performance of AE and VAE with other state-of-the-art compression techniques.
 
 ## References
 
