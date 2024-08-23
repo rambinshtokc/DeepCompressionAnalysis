@@ -2,15 +2,15 @@
 
 ## Overview
 
-This project performs a comprehensive analysis of Variational Autoencoders (VAE) and traditional Autoencoders (AE) to evaluate their performance in image compression tasks. The study focuses on the impact of various model parameters and configurations on key performance metrics, including reconstruction quality, compression ratio, and noise robustness.
+This project provides a comprehensive analysis of Variational Autoencoders (VAE) and traditional Autoencoders (AE) for image compression tasks. The analysis focuses on the impact of various model parameters and configurations on key performance metrics, including reconstruction quality, compression ratio, and noise robustness.
 
 ## Abstract
 
-This study investigates how different configurations and parameters affect the performance of image compression using deep neural network architectures, specifically Variational Autoencoders (VAE) and traditional Autoencoders. Metrics such as Mean Squared Error (MSE), Peak Signal-to-Noise Ratio (PSNR), and Structural Similarity Index (SSIM) are used to assess reconstruction quality. Various aspects including regularization techniques (L1, L2), noise robustness, and more are analyzed. The findings aim to guide the optimization of VAE and AE architectures for improved image compression.
+This study investigates the effects of different configurations and parameters on the performance of image compression using deep neural network architectures, specifically Variational Autoencoders (VAE) and traditional Autoencoders. Metrics such as Mean Squared Error (MSE), Peak Signal-to-Noise Ratio (PSNR), and Structural Similarity Index (SSIM) are used to assess reconstruction quality. Various aspects, including regularization techniques (L1, L2), noise robustness, and more, are analyzed to optimize VAE and AE architectures for improved image compression.
 
 ## Introduction
 
-Autoencoders and Variational Autoencoders are essential tools for dimension reduction and image compression. Autoencoders, introduced in 2006, learn efficient data representations by compressing input data into a latent space and reconstructing it. VAEs, introduced in 2013, enhance this approach with probabilistic elements, enabling the generation of new data samples. This project analyzes the impact of various parameters on these models' performance, with a focus on reconstruction quality and compression efficiency.
+Autoencoders and Variational Autoencoders are essential tools for dimension reduction and image compression. Introduced in 2006, Autoencoders learn efficient data representations by compressing input data into a latent space and reconstructing it. VAEs, introduced in 2013, enhance this approach with probabilistic elements, enabling the generation of new data samples. This project analyzes the impact of various parameters on these models' performance, focusing on reconstruction quality and compression efficiency.
 
 ## Baseline Architectures
 
@@ -125,16 +125,4 @@ The VAE demonstrated better robustness to noise compared to the Autoencoder. The
 
 ## Conclusion
 
-Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to the AE. However, the VAE demonstrates better performance with regularization techniques, and it is more robust to noise. The choice between AE and VAE depends on specific requirements related to reconstruction quality, noise robustness, and the need for advanced regularization techniques.
-
-## Future Work
-
-Future research could explore:
-- Improving VAE reconstruction quality through architectural enhancements or advanced training techniques.
-- Investigating the effects of different types of noise and advanced regularization techniques on both AE and VAE performance.
-- Comparing the performance of AE and VAE with other state-of-the-art compression techniques.
-
-## References
-
-- Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. ICLR.
-- Hinton, G. E., & Salakhutdinov, R. R. (2006). Reducing the dimensionality of data with neural networks. Science.
+Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a lower reconstruction quality with higher MSE and lower PSNR and SSIM compared to the AE. However, the VAE demonstrates better performance with regular
