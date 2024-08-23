@@ -23,18 +23,6 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
 
-#### Reconstruction Quality
-
-**Metrics Table for Autoencoder:**
-
-| Metric   | Mean    | Median  | Standard Deviation |
-|----------|---------|---------|--------------------|
-| MSE      | 0.00109 | 0.00098 | 0.00052            |
-| PSNR     | 29.99581| 30.085  | 1.774              |
-| SSIM     | 0.90358 | 0.91104 | 0.03552            |
-
-*Table 1: AutoEncoder reconstruction quality metrics.*
-
 #### Regularization Techniques
 
 - **No Regularization**: MSE = `0.00426`, SSIM = `0.72741`, PSNR = `23.989`
@@ -42,7 +30,7 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 - **L2 Regularization**: MSE = `0.00442`, SSIM = `0.70792`, PSNR = `23.855`
 - **L1 + L2 Regularization (Elastic Net)**: MSE = `0.00450`, SSIM = `0.72140`, PSNR = `23.772`
 
-**Metrics Table for Regularization Techniques:**
+**Metrics Table for Regularization Techniques (Autoencoder):**
 
 | Regularization  | MSE   | SSIM   | PSNR  |
 |-----------------|-------|--------|-------|
@@ -77,32 +65,18 @@ The Autoencoder exhibited a decline in reconstruction quality with increasing no
 - **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
 - **Training**: Combination of reconstruction loss and KL divergence, optimized with Adam for 200 epochs.
 
-#### Reconstruction Quality
-
-**Metrics Table for VAE:**
-
-| Metric   | Mean    | Median  | Standard Deviation |
-|----------|---------|---------|--------------------|
-| MSE      | 0.03220 | 0.03030 | 0.01317            |
-| PSNR     | 10.385  | 10.246  | 2.3023             |
-| SSIM     | 0.25626 | 0.24562 | 0.0859             |
-
-*Table 2: VAE reconstruction quality metrics.*
-
 #### Regularization Techniques
 
-- **L1 Regularization**: MSE of `0.031` on the validation set and `0.029` on the test set.
-- **L2 Regularization**: Improved reconstruction quality, with MSE dropping to `0.028` on the validation set and `0.027` on the test set.
-- **Elastic Net Regularization**: Best performance with MSE of `0.025` on the validation set and `0.023` on the test set.
+**Metrics Table for Regularization Techniques (VAE):**
 
-**Metrics Table for Regularization Techniques in VAE:**
+| Regularization  | MSE    | SSIM   | PSNR  |
+|-----------------|--------|--------|-------|
+| No Regularization | 0.03220 | 0.25626 | 10.385 |
+| L1              | 0.03218 | 0.25657 | 10.374 |
+| L2              | 0.04598 | 0.21202 | 7.395  |
+| L1 + L2         | 0.06001 | 0.19449 | 5.883  |
 
-| Regularization  | MSE (Validation) | MSE (Test) | PSNR (Validation) | PSNR (Test) | SSIM (Validation) | SSIM (Test) |
-|-----------------|------------------|------------|-------------------|-------------|-------------------|-------------|
-| Baseline        | 0.03220          | 0.03030    | 10.385 dB         | 10.246 dB   | 0.25626           | 0.24562     |
-| L1              | 0.03100          | 0.02900    | 10.500 dB         | 10.400 dB   | 0.26000           | 0.25000     |
-| L2              | 0.02800          | 0.02700    | 10.700 dB         | 10.600 dB   | 0.27000           | 0.26000     |
-| Elastic Net     | 0.02500          | 0.02300    | 10.900 dB         | 10.800 dB   | 0.28000           | 0.27000     |
+*Table 2: VAE reconstruction quality metrics.*
 
 **Figures:**
 
