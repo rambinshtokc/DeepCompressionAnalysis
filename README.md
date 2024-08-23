@@ -122,7 +122,7 @@ Both VAE and AE architectures exhibit strengths and limitations in image compres
 4. Flickr Faces 70k Thumbnails 128x128 Dataset. [Download the dataset here](https://www.kaggle.com/datasets/imcr00z/flickr-faces-70k-thumbnails-128x128).
 5. Autoencoder Implementation. Code adapted from: [Santh Tadi's Autoencoders Image Compression](https://github.com/santhtadi/AutoEncodersImageCompression).
 6. Kristiadi, A. (2016). Variational Autoencoder: Intuition and Implementation. [Agustinus Kristiadi's Tech Blog](https://agustinus.kristia.de/techblog/2016/12/10/variational-autoencoder/).
-7. Tal Daube. (2020). Variational Autoencoder Tutorial. [GitHub Repository](https://github.com/taldatech/ee046202-unsupervised-learning-data-analysis/blob/master/ee046202_tutorial_09_deep_unsupervised_vae_2.ipynb).
+7. Tal Daniel. (2020). Variational Autoencoder Tutorial. [GitHub Repository](https://github.com/taldatech/ee046202-unsupervised-learning-data-analysis/blob/master/ee046202_tutorial_09_deep_unsupervised_vae_2.ipynb).
 
 ## License
 
