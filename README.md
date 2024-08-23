@@ -17,6 +17,8 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 ### Autoencoder
 
 ![Autoencoder Architecture](https://lilianweng.github.io/posts/2018-08-12-vae/autoencoder-architecture.png)
+*Figure 1: Diagram of the Autoencoder Architecture.*  
+*Source: [1]*
 
 - **Architecture**: Convolutional Autoencoder with two convolutional layers for encoding and two transposed convolutional layers for decoding.
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
@@ -156,6 +158,10 @@ For detailed results, refer to the provided figures and tables that illustrate t
 ## Ethics Statement
 
 This project acknowledges the ethical considerations in image compression, particularly regarding diverse facial features. The models are trained on specific datasets and may not generalize to all facial types. It is crucial to highlight these limitations when presenting results to stakeholders and ensure models do not distort unique features.
+
+### References
+
+1. Weng, L. (2018). *Autoencoder Architecture*. Retrieved from [Lilian Weng's Blog](https://lilianweng.github.io/posts/2018-08-12-vae/).
 
 ## Contact
 
