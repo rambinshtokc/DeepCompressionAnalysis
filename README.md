@@ -33,7 +33,21 @@ This repository includes two Jupyter notebooks to assist with data preparation, 
 
 Both notebooks are designed to be user-friendly and include detailed instructions to facilitate understanding and implementation of the experiments.
 
+## Installation
 
+### Installation Using Conda and Pip
+
+1. **Create a Clean Virtual Environment:**
+
+   ```bash
+   pip install -r requirements.txt
+   
+2. **Install Required Packages:**
+
+   ```bash
+   conda create -n vae_ae_analysis python=3.10.12
+   conda activate vae_ae_analysis
+   
 ## Baseline Architectures
 
 ### Autoencoder
