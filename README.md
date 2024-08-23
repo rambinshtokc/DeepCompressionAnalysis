@@ -26,6 +26,12 @@ Autoencoders and Variational Autoencoders are essential tools for dimension redu
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
 
 ### Variational Autoencoder (VAE)
+<p align="center">
+  <img src="https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png" alt="Variational Autoencoder (VAE) Architecture">
+</p>
+
+<p align="center"><i>Figure 2: Diagram of the Variational Autoencoder (VAE) Architecture.<br>Source: <a href="https://lilianweng.github.io/posts/2018-08-12-vae/">Lilian Weng's Blog</a></i></p>
+
 
 - **Architecture**: Encoder with three linear layers (128x128 input to 512 dimensions, then to 200 dimensions for mean and log variance); Decoder with two linear layers (200 to 512 dimensions and 512 to 128x128 dimensions).
 - **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
