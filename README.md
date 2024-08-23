@@ -44,8 +44,8 @@ Both notebooks are designed to be user-friendly and include detailed instruction
 - **Activation Functions**: ReLU in the encoder, ReLU and Sigmoid in the decoder.
 - **Training**: MSE loss, Adam optimizer (learning rate: 0.001, weight decay: 1e-5), trained for 200 epochs.
 
-#### Regularization Techniques
-**Results
+#### Regularization Techniques - Results
+
 
 **Metrics Table for Regularization Techniques:**
 
@@ -82,7 +82,7 @@ The Autoencoder exhibited a decline in reconstruction quality with increasing no
 - **Activation Functions**: ReLU in the encoder, Sigmoid in the decoder.
 - **Training**: Combination of reconstruction loss and KL divergence, optimized with Adam for 200 epochs.
 
-#### Regularization Techniques
+#### Regularization Techniques - Results
 
 **Metrics Table for Regularization Techniques in VAE:**
 
