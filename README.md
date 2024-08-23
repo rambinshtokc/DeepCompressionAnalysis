@@ -88,12 +88,6 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 2. ![Autoencoder Histogram](Figures/AE_hist.png)  
    *Figure 4: Histogram of pixel values in reconstructed images.*
 
-3. ![Autoencoder Noise Loss](Figures/AE_noise_loss.png)  
-   *Figure 5: Reconstruction loss with varying noise levels in the Autoencoder model.*
-
-4. ![Autoencoder Noise Regularization Images](Figures/AE_noise_reg_images.png)  
-   *Figure 6: Impact of noise and regularization on Autoencoder performance.*
-
 ### Variational Autoencoder (VAE)
 
 #### Reconstruction Quality
@@ -127,44 +121,45 @@ The dataset used is the Flickr Faces 70k Thumbnails 128x128, containing 70,000 g
 
 **Figures:**
 
-1. ![VAE Regularization Images](Figures/VAE_reg_images2.png)  
-   *Figure 7: Variational Autoencoder regularization images showing the effect of different regularization techniques.*
+1. ![VAE Regularization Images](Figures/VAE_reg_images.png)  
+   *Figure 7: VAE regularization images demonstrating the effect of different regularization techniques.*
 
 2. ![VAE Histogram](Figures/VAE_hist.png)  
-   *Figure 8: Histogram of pixel values in reconstructed images.*
+   *Figure 8: Histogram of pixel values in reconstructed images from VAE.*
 
-3. ![VAE Noise Loss](Figures/VAE_noise_loss.png)  
+## Discussion on Noise Robustness
+
+### Autoencoder
+
+The Autoencoder exhibited a decline in reconstruction quality with increasing noise levels. The MSE increased from `0.012` to `0.020` as Gaussian noise with a standard deviation of `0.1` was added. Regularization techniques improved the robustness to noise, particularly Elastic Net, which provided a more stable reconstruction quality under noisy conditions.
+
+**Figures:**
+
+1. ![AE Noise Loss](Figures/AE_noise_loss.png)  
+   *Figure 5: Reconstruction loss with varying noise levels in the Autoencoder model.*
+
+2. ![AE Noise Regularization Images](Figures/AE_noise_reg_images.png)  
+   *Figure 6: Impact of noise and regularization on Autoencoder performance.*
+
+### Variational Autoencoder (VAE)
+
+The VAE demonstrated better robustness to noise compared to the Autoencoder. The MSE increase with noise was less pronounced, going from `0.015` to `0.018` under similar conditions. The probabilistic nature of the VAE contributed to better handling of noisy inputs. Regularization further enhanced this robustness, with Elastic Net showing the most significant improvement.
+
+**Figures:**
+
+1. ![VAE Noise Loss](Figures/VAE_noise_loss.png)  
    *Figure 9: Reconstruction loss with varying noise levels in the VAE model.*
 
-4. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
+2. ![VAE Noise Regularization Images](Figures/VAE_noise_reg_images.png)  
    *Figure 10: Impact of noise and regularization on VAE performance.*
-
-### Noise Robustness
-
-- **Low Noise Level**: MSE of `0.017`, PSNR of `27.0 dB`, SSIM of `0.85`.
-- **High Noise Level**: MSE of `0.021`, PSNR of `25.0 dB`, SSIM of `0.80`.
-
-**Metrics Table for Noise Levels in VAE:**
-
-| Noise Level    | MSE (Validation) | PSNR (Validation) | SSIM (Validation) |
-|----------------|------------------|-------------------|-------------------|
-| Low            | 0.017            | 27.0 dB           | 0.85              |
-| High           | 0.021            | 25.0 dB           | 0.80              |
 
 ## Conclusion
 
-- **Comparison of Architectures**: The VAE generally performs better than the Autoencoder in terms of reconstruction quality, as indicated by lower MSE and higher PSNR and SSIM scores. The VAE’s probabilistic approach helps in capturing more nuanced features of the data.
+Both VAE and AE architectures exhibit strengths and limitations in image compression tasks. The VAE shows a notable advantage in noise robustness and generates higher-quality reconstructions under challenging conditions. Regularization techniques, especially Elastic Net, significantly impact both models' performance, improving their reconstruction quality and robustness.
 
-- **Impact of Regularization**: Elastic Net regularization provides the best performance for both Autoencoders and VAEs, balancing between L1 and L2 regularization effects.
-
-- **Noise Robustness**: Both models show decreased performance with higher noise levels, but the VAE maintains better quality compared to the Autoencoder.
-
-## Future Work
-
-- **Exploring Advanced Variants**: Investigating advanced variants of VAEs and Autoencoders, such as Conditional VAEs, to further improve reconstruction quality and robustness.
-
-- **Optimizing Training**: Experimenting with different optimization strategies and hyperparameters to enhance model performance.
+**Future Work**: Further studies could explore the impact of different types of noise and investigate the effectiveness of advanced regularization techniques.
 
 ## References
 
-- **Lilian Weng's Blog on VAEs**: [Link to Blog](https://lilianweng.github.io/posts/2018-08-12-vae/)
+- Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. ICLR.
+- Hinton, G. E., & Salakhutdinov, R. R. (2006). Reducing the dimensionality of data with neural networks. Science.
